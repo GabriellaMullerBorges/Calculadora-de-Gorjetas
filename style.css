@@ -8,9 +8,12 @@
     --Branquinho: #FFFFFF
 }
 
-*{
+* {
     font-size: 11px; 
     font-family: 'Space Mono', monospace;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body{
@@ -39,22 +42,137 @@ body{
 }
 .baseCalculadora{
     display: flex;
-    width: 70%;
-    background-color: var(--Branquinho);
-}
-
-.ladoInputs, .ladoResultados {
-    display: flex;
-}
-
-.ladoInputs {
     flex-direction: column;
-    width:100%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /*width: 70%;*/
+    background-color: var(--Branquinho);
+    padding:2rem;
+    border-radius: 8%;
+    margin-bottom: 2rem;
+}
+
+.ladoInputs, .ladoResultado {
+    display: flex;
+    /*width: 70%;*/
+}
+
+.ladoInputs{
+ width: 100%;
 }
 
 .ladoResultado {
-    flex-direction: column;
-    background-color:var(--FundoEscuro);
-    width:100%;
+    justify-content: end;
+    width: 100%;
+    flex-grow: 2;
+}
 
+.ladoInputsConteudo{
+ padding: 0 15px;
+ box-sizing: border-box;
+ display: flex;
+ flex-direction: column;
+ width:100%;
+ font-weight: 700;
+ color: var(--CorLetras);
+}
+
+.ladoResultadoConteudo{
+    background-color: var(--FundoEscuro);
+    padding: 30px;  
+    border-radius: 8%;
+    width:100%
+}
+
+.inputs {
+    background-color: var(--DentroFormulario);
+    border: none;
+    width: 100%;
+    margin-bottom: 1rem;
+    line-height: 40px;
+}
+
+.div-botoes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.botao-tip {
+    font-size: 24px;
+    border-radius: 10px;
+    border: var(--FundoEscuro) solid 5px;
+    background-color: var(--FundoEscuro);
+    color: var(--DentroFormulario);
+    font-weight: 700;
+    text-align: center;
+    width:48%;
+    
+}
+
+.caixa-botoes{
+    display: flex;
+    flex-wrap: wrap;
+    height: 50%;
+    padding: 5px 1px;
+    width: 100%;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+    text-align: center;  
+    justify-content: center;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+.custom{
+
+    background-color: var(--DentroFormulario);
+    color: var(--CorLetras);
+    border: var(--DentroFormulario) solid 5px;
+}
+
+.ladoResultadoConteudo{
+    font-weight: 700;
+}
+
+.etiqueta-oque {
+    font-size: 14px;   
+    color: var(--DentroFormulario);
+}
+
+.etiqueta-pessoa {
+color: var(--CorLetras);
+}
+  
+.quantidadeGorjeta, .quantidadePessoa {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.etiqueta, .saida{
+    width:50%;
+}
+
+.outputs{
+    font-size: 24px;
+    color: var(--LetrasGrandes);
+}
+  
+.botao-reset{
+    font-size: 24px;
+    border-radius: 10px;
+    border: var(--LetrasGrandes) solid 5px;
+    background-color:var(--LetrasGrandes);
+    color: var(--DentroFormulario);
+    font-weight: 700;
+    text-align: center;
+    width:100%;
+}
+
+footer{
+    background-color: var(--LetrasGrandes);
+    padding: 1rem;
+    margin-bottom: 0;
 }
