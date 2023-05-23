@@ -1,0 +1,60 @@
+:root {
+    --FundoEscuro: #00494D;
+    --CorLetras: #5E7A7D;
+    --LetrasDentroPequenas: #7F9C9F;
+    --FundoGeral: #C5E4E7;
+    --DentroFormulario: #F4FAFA;
+    --LetrasGrandes: #26C0AB;
+    --Branquinho: #FFFFFF
+}
+
+*{
+    font-size: 11px; 
+    font-family: 'Space Mono', monospace;
+}
+
+body{
+   background-color: var(--FundoGeral); 
+}
+
+.destaque{
+    margin: 7rem; 
+    text-align: center;
+}
+
+.tituloPagina{
+    display: flex;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--CorLetras);
+    letter-spacing: 10px;
+    justify-content: center;
+}
+
+.calculadora{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.baseCalculadora{
+    display: flex;
+    width: 70%;
+    background-color: var(--Branquinho);
+}
+
+.ladoInputs, .ladoResultados {
+    display: flex;
+}
+
+.ladoInputs {
+    flex-direction: column;
+    width:100%;
+}
+
+.ladoResultado {
+    flex-direction: column;
+    background-color:var(--FundoEscuro);
+    width:100%;
+
+}
