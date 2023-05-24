@@ -5,7 +5,9 @@
     --FundoGeral: #C5E4E7;
     --DentroFormulario: #F4FAFA;
     --LetrasGrandes: #26C0AB;
-    --Branquinho: #FFFFFF
+    --iconesSVG:#9EBBBD;
+    --hovers:#99e2d8;
+    --Branquinho: #FFFFFF;
 }
 
 * {
@@ -78,12 +80,10 @@ body{
  color: var(--CorLetras);
 }
 
-.ladoResultadoConteudo{
-    background-color: var(--FundoEscuro);
-    padding: 30px;  
-    border-radius: 8%;
-    width:100%
-}
+.input-container {
+    position: relative;
+    display: flex;
+  }
 
 .inputs {
     background-color: var(--DentroFormulario);
@@ -91,6 +91,51 @@ body{
     width: 100%;
     margin-bottom: 1rem;
     line-height: 40px;
+    border-radius: 8px;
+} 
+
+.inputs:hover , .custom:hover{
+ border: 3px solid var(--LetrasDentroPequenas);
+ outline: none;
+}
+
+.inputs:focus, .custom:focus{
+border: 3px solid var(--LetrasGrandes);
+outline: none;
+  }
+
+.inputs:active, .custom:active{
+    border: 3px solid var(--CorLetras);
+    outline: none;
+  }
+
+.placeholder-icon {
+    position: absolute;
+    top: 40%;
+    left: 5px;
+    transform: translateY(-50%);
+  } 
+
+.placeholder-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+input[type="text"]::placeholder {
+    text-align: right;
+    margin-right: 10px;
+    font-size: 24px;
+    color: var(--iconesSVG);
+    font-weight: 700;
+    top: 40%;
+    transform: translateY(10%); /*  QUANDO O NUMERO FOR DIGITADO, A COR É var(--FundoEscuro)*/
+  }
+ 
+.ladoResultadoConteudo{
+    background-color: var(--FundoEscuro);
+    padding: 30px;  
+    border-radius: 20px;
+    width:100%
 }
 
 .div-botoes{
@@ -108,8 +153,19 @@ body{
     color: var(--DentroFormulario);
     font-weight: 700;
     text-align: center;
-    width:48%;
-    
+    width:48%;   
+}
+
+.botao-tip:hover{
+    background-color:var(--hovers);
+    border:var(--hovers) solid 5px;
+    color: var(--FundoEscuro);
+}
+
+.botao-tip:focus{
+    background-color: var(--LetrasGrandes);
+    border: var(--LetrasGrandes) solid 5px;
+    color: var(--FundoEscuro);
 }
 
 .caixa-botoes{
@@ -127,7 +183,6 @@ body{
     justify-content: space-between;
 }
 .custom{
-
     background-color: var(--DentroFormulario);
     color: var(--CorLetras);
     border: var(--DentroFormulario) solid 5px;
@@ -155,6 +210,10 @@ color: var(--CorLetras);
     width:50%;
 }
 
+.saida{
+    text-align: right;
+}
+
 .outputs{
     font-size: 24px;
     color: var(--LetrasGrandes);
@@ -165,14 +224,29 @@ color: var(--CorLetras);
     border-radius: 10px;
     border: var(--LetrasGrandes) solid 5px;
     background-color:var(--LetrasGrandes);
-    color: var(--DentroFormulario);
+    color: var(--FundoEscuro);
     font-weight: 700;
     text-align: center;
     width:100%;
 }
 
+.botao-reset:hover{
+background-color: var(--hovers);
+border: var(--hovers) solid 5px;
+}
+
+.botao-reset:active{
+    background-color: var(--iconesSVG);
+    border: var(--iconesSVG) solid 5px;
+    }
+
 footer{
     background-color: var(--LetrasGrandes);
     padding: 1rem;
     margin-bottom: 0;
+}
+
+footer a{
+    text-decoration: none;
+    color: #00494D;
 }
