@@ -1,0 +1,74 @@
+@media screen and (min-width: 1440px) {
+    .destaque {
+    margin-bottom: 0;
+    }
+    .calculadora{
+        height: 76vh;
+    } 
+
+    .info{
+        margin: 5px;
+    }
+
+    .inputs{
+        margin-top: 5px;
+    }
+    
+    .baseCalculadora{
+        width: 50%;
+        flex-direction: row;
+        align-items: stretch;
+        height: 50%;
+        margin:0;
+        padding:0;
+    }
+
+    .ladoInputs {
+        gap:auto;
+        margin:15px 0 10px 20px;
+    }
+
+    #select-tip{
+        margin-top: 30px;
+    }
+    .div-botoes{
+        display: flex;
+        align-items: start;
+        flex-basis: 35%;
+        justify-content: space-between;
+        margin: 0;
+    }
+
+    .caixa-botoes {
+        height: 100%;
+        align-items: center;
+        justify-content: space-between;
+        gap:0px;
+      }  
+      
+      .botao-tip {
+        max-width: 30%;
+        border-radius: 5px;;
+        
+      }
+
+    .ladoResultado{
+        margin: 20px 20px 20px 0;
+    }
+
+    .ladoResultadoConteudo {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .quantidadePessoa
+
+    .div-reset{
+        display: flex;
+        height: 100px;
+        width: 100%;
+        justify-content: flex-end;
+        align-items: end;
+    }
+    
+}

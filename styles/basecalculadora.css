@@ -1,0 +1,32 @@
+
+.calculadora{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.baseCalculadora{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: var(--Branquinho);
+    padding:2rem;
+    border-radius: 40px;
+    margin-bottom: 2rem;
+}
+
+.ladoInputs, .ladoResultado {
+    display: flex;
+}
+
+.ladoInputs{
+ width: 100%;
+}
+
+.ladoResultado {
+    justify-content: end;
+    width: 100%;
+    flex-grow: 2;
+}

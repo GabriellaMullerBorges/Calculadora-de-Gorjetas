@@ -1,0 +1,14 @@
+
+.destaque{
+    margin: 7rem; 
+    text-align: center;
+}
+
+.tituloPagina{
+    display: flex;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--CorLetras);
+    letter-spacing: 10px;
+    justify-content: center;
+}

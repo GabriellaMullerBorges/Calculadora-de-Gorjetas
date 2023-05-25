@@ -1,0 +1,38 @@
+.ladoResultadoConteudo{
+    background-color: var(--FundoEscuro);
+    padding: 30px;  
+    border-radius: 20px;
+    width:100%
+}
+
+.ladoResultadoConteudo{
+    font-weight: 700;
+}
+
+.etiqueta-oque {
+    font-size: 14px;   
+    color: var(--DentroFormulario);
+}
+
+.etiqueta-pessoa {
+color: var(--CorLetras);
+}
+  
+.quantidadeGorjeta, .quantidadePessoa {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.etiqueta, .saida{
+    width:50%;
+}
+
+.saida{
+    text-align: right;
+}
+
+.outputs{
+    font-size: 24px;
+    color: var(--LetrasGrandes);
+}
+ 

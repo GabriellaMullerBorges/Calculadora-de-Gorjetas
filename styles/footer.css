@@ -1,0 +1,11 @@
+footer{
+    background-color: var(--LetrasGrandes);
+    padding: 1rem;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+footer a{
+    text-decoration: none;
+    color: #00494D;
+}

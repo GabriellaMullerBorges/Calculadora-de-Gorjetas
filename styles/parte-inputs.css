@@ -1,0 +1,9 @@
+.ladoInputsConteudo{
+    padding: 0 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    font-weight: 700;
+    color: var(--CorLetras);
+   }

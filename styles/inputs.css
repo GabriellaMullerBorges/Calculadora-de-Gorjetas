@@ -1,0 +1,64 @@
+
+.input-container {
+    position: relative;
+    display: flex;
+  }
+
+.inputs {
+    background-color: var(--DentroFormulario);
+    border: none;
+    width: 100%;
+    margin-bottom: 1rem;
+    line-height: 40px;
+    border-radius: 8px;
+} 
+
+
+
+
+.inputs:hover {
+ border: 3px solid var(--LetrasDentroPequenas);
+ outline: none;
+}
+
+.inputs:focus, .custom:focus{
+border: 3px solid var(--LetrasGrandes);
+outline: none;
+  }
+
+.inputs:active, .custom:active{
+    border: 3px solid var(--CorLetras);
+    outline: none;
+  }
+
+.placeholder-icon {
+    position: absolute;
+    top: 40%;
+    left: 5px;
+    transform: translateY(-50%);
+  } 
+
+.placeholder-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+input[type="text"]::placeholder {
+    text-align: right;
+    margin-right: 10px;
+    font-size: 24px;
+    color: var(--iconesSVG);
+    font-weight: 700;
+    top: 40%;
+    transform: translateY(10%); /*  QUANDO O NUMERO FOR DIGITADO, A COR É var(--FundoEscuro)*/
+  }
+
+  input[type="text"],
+  textarea {
+    text-align: right;
+    font-size: 24px;
+    color: var(--iconesSVG);
+    font-weight: 700;
+  }
+  
+ 
