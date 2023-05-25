@@ -1,7 +1,13 @@
-// INPUT DO VALOR DA CONTA E Nº PESSOAS //
+//QUERY SELECTORS//
 
 const billInput = document.querySelector('#input-bill');
 const peopleInput = document.querySelector('#input-people');
+const tipAmountOutput = document.getElementById('saida-tip-amount');
+const totalOutput = document.getElementById('saida-total');
+
+
+
+// INPUT DO VALOR DA CONTA E Nº PESSOAS //
 
 var billEntry = '';
 var peopleEntry = '';
@@ -14,8 +20,8 @@ peopleInput.addEventListener('input',function(event){
     peopleEntry = event.target.value;
 });
 
-
-// BOTÕES DE PORCENTAGEM //
+  
+// BOTÕES DE PORCENTAGEM E FUNÇÃO //
 
 var porcentagemSelecionada;
 var valorNumericoSelecionado;
@@ -25,10 +31,28 @@ const botoes = document.querySelectorAll('.botao-tip');
     botoes.forEach(botao => {
         
         botao.addEventListener('mouseup', function() {
-            if (billEntry == "" || peopleEntry === "") { 
+            if (billEntry == "" || peopleEntry === "" || billEntry == "0" || peopleEntry === "0") { 
                 alert('Ops, algum campo não foi preenchido devidamente')  
-           } else {  
-            porcentagemSelecionada = botao.dataset.porcentagem;
+           } else if(/[^0-9.,]/.test(billEntry) || /\D/.test(peopleEntry)){ 
+            alert('Ops, preencha adequadamente os campos com números')  
+           }else if(billEntry.includes(",")){
+             var billEntrada = billEntry.replace(',','.')
+
+             porcentagemSelecionada = botao.dataset.porcentagem;
+             valorNumericoSelecionado = parseFloat(porcentagemSelecionada.replace('%', '')); 
+
+             var  tip = (billEntrada*valorNumericoSelecionado)/100;
+             var tipPerson = (tip/peopleEntry);
+
+             var  billValue = parseFloat(billEntrada);
+             var  peopleValue = parseInt(peopleEntry);
+
+             var totalPorPessoa = (billValue+tip)/peopleValue;
+
+             tipAmountOutput.innerHTML = `$ ${tipPerson.toFixed(2)}`;
+             totalOutput.innerHTML =  `$ ${totalPorPessoa.toFixed(2)}`;
+           }else {  
+             porcentagemSelecionada = botao.dataset.porcentagem;
              valorNumericoSelecionado = parseFloat(porcentagemSelecionada.replace('%', '')); 
 
              var  tip = (billEntry*valorNumericoSelecionado)/100;
@@ -39,19 +63,25 @@ const botoes = document.querySelectorAll('.botao-tip');
 
              var totalPorPessoa = (billValue+tip)/peopleValue;
 
-             console.log(
-            `VALOR porcentagem ${valorNumericoSelecionado} TIPO ${typeof valorNumericoSelecionado}!
-             VALOR BillEntry é ${billEntry} TIPO ${typeof billEntry}! 
-             VALOR peopleEntry ${peopleEntry}TIPO ${ typeof peopleEntry}!
-             VALOR tip ${tip} TIPO ${typeof tip}! 
-             VALOR tip/person ${tipPerson} TIPO ${typeof tipPerson}!
-             VALOR billValue ${billValue} TIPO ${typeof billValue}!
-             VALOR peopleValue ${peopleValue} TIPO ${typeof peopleValue}!
-             VALOR totalPorPessoa ${totalPorPessoa} TIPO ${typeof totalPorPessoa}!
-             `
-             );        
-             
-             alert(`O valor de gorjeta por pessoa é ${tipPerson} e o total por pessoa ${totalPorPessoa}`)
+             tipAmountOutput.innerHTML = `$ ${tipPerson.toFixed(2)}`;
+             totalOutput.innerHTML =  `$ ${totalPorPessoa.toFixed(2)}`;
            }   
         }  
-    )});
+    )});  
+    
+    //RESETAR//
+
+    function resetPlaceholders(){
+         billInput.value ="";
+         peopleInput.value ="";
+         tipAmountOutput.value ="$ 0,00";
+         totalOutput.value ="$ 0,00";
+    }
+
+ 
+    document.getElementById("reset").addEventListener("click", resetPlaceholders);
+ 
+
+
+
+
