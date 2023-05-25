@@ -63,6 +63,8 @@
     width:100%;
 }
 
+/*testar a propriedade clamp*/
+
 .botao-reset:hover{
 background-color: var(--hovers);
 border: var(--hovers) solid 5px;
