@@ -35,6 +35,8 @@ const botoes = document.querySelectorAll('.botao-tip');
                 alert('Ops, algum campo não foi preenchido devidamente')  
            } else if(/[^0-9.,]/.test(billEntry) || /\D/.test(peopleEntry)){ 
             alert('Ops, preencha adequadamente os campos com números')  
+           }else if(!/^\d+([.,]\d{1,2})?$/.test(billEntry)){
+            alert('Ops, preencha apenas até duas casas após a vírgula')  
            }else if(billEntry.includes(",")){
              var billEntrada = billEntry.replace(',','.')
 

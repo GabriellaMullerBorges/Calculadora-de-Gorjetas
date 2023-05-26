@@ -28,8 +28,13 @@
         margin:15px 0 10px 20px;
     }
 
+    .ladoInputsConteudo{
+    margin-bottom: 0;
+    margin-right: 1rem;
+    }
+
     #select-tip{
-        margin-top: 30px;
+        margin-top: 1rem;
     }
     .div-botoes{
         display: flex;
@@ -48,8 +53,7 @@
       
       .botao-tip {
         max-width: 30%;
-        border-radius: 5px;;
-        
+        border-radius: 5px;; 
       }
 
     .ladoResultado{
@@ -61,14 +65,13 @@
         flex-direction: column;
       }
 
-      .quantidadePessoa
-
     .div-reset{
         display: flex;
+        flex-direction: column;
         height: 100px;
         width: 100%;
         justify-content: flex-end;
-        align-items: end;
+        align-items: stretch
     }
     
 }

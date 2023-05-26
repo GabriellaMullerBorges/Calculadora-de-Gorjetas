@@ -1,9 +1,15 @@
 .ladoInputsConteudo{
-    padding: 0 15px;
+    padding: 0 ;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     width:100%;
     font-weight: 700;
     color: var(--CorLetras);
+    margin-bottom: 1rem;
    }
+
+   .input-container {
+    position: relative;
+    display: flex;
+  }

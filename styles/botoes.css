@@ -23,7 +23,7 @@
     color: var(--DentroFormulario);
     font-weight: 700;
     text-align: center;
-    flex-basis:calc(50% - 10px);
+    flex-basis:calc(50% - 10px);  
   }
   
 .botao-tip:hover{
@@ -38,11 +38,11 @@
     color: var(--FundoEscuro);
 }
 
-
 .custom{
-    background-color: var(--DentroFormulario);
     color: var(--CorLetras);
     border: var(--DentroFormulario) solid 5px;
+    outline: none;
+    background-color: var(--DentroFormulario);
 }
 
 .custom:hover{
@@ -62,8 +62,6 @@
     text-align: center;
     width:100%;
 }
-
-/*testar a propriedade clamp*/
 
 .botao-reset:hover{
 background-color: var(--hovers);
