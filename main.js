@@ -82,10 +82,7 @@ const botoes = document.querySelectorAll('.botao-tip:not([class*=" "])');
 const inputCustom = document.querySelector('.input-custom');
 
 function verificaNAN(valor){
-    if(isNaN(valor) || valor == 0){
-        inputCustom.parentElement.dataset.porcentagem = '';
-        alert("Ops!")  
-    }else{
+    if (/^[0-9%]+$/.test(valor)) {
         inputCustom.parentElement.dataset.porcentagem = valor;
 
         var billEntrada = billEntry.replace(',','.');
@@ -99,7 +96,9 @@ function verificaNAN(valor){
 
         tipAmountOutput.innerHTML = `$ ${tipPerson.toFixed(2)}`;
         totalOutput.innerHTML =  `$ ${totalPorPessoa.toFixed(2)}`;
-    }
+      } else {
+        alert("Ops!");
+      }
 }
 
 inputCustom.addEventListener('keydown', function(event) {

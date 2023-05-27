@@ -1,7 +1,10 @@
 footer{
+    position: fixed;
+    width:100%;
     background-color: var(--LetrasGrandes);
     padding: 1rem;
-    margin-bottom: 0;
+    bottom: 0;
+    left: 0;
     text-align: center;
 }
 
