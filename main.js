@@ -6,7 +6,8 @@ const billAlert = document.getElementById('alerta-conta');
 const peopleAlert =  document.getElementById('alerta-pessoas')
 const tipAmountOutput = document.getElementById('saida-tip-amount');
 const totalOutput = document.getElementById('saida-total');
-const customAlert = document.getElementById('alerta-custom')
+const customAlert = document.getElementById('alerta-custom');
+const inputCustom = document.querySelector('.input-custom');
 
 
 // INPUT DO VALOR DA CONTA E Nº PESSOAS //
@@ -79,6 +80,7 @@ function calculaGorjeta(gorjeta){
      if(billEntry.includes(",")){
 
             var billEntrada = billEntry.replace(',','.')
+            customAlert.innerHTML= "";
 
              porcentagemSelecionada = gorjeta.dataset.porcentagem;
              valorNumericoSelecionado = parseFloat(porcentagemSelecionada.replace('%', '')); 
@@ -97,7 +99,7 @@ function calculaGorjeta(gorjeta){
     }else {  
              porcentagemSelecionada = gorjeta.dataset.porcentagem;
              valorNumericoSelecionado = parseFloat(porcentagemSelecionada.replace('%', ''));
-
+             customAlert.innerHTML= "";
              
              var  tip = (billEntry*valorNumericoSelecionado)/100;
              var tipPerson = (tip/peopleEntry);
@@ -134,8 +136,6 @@ const botoes = document.querySelectorAll('.botao-tip:not([class*=" "])');
     
 //BOTAO CUSTOM//
 
-const inputCustom = document.querySelector('.input-custom');
-
 function saidaCustom(valor){
     if (!verificaEntradas()) { 
         verificaNAN(valor)
@@ -146,13 +146,14 @@ function saidaCustom(valor){
 
 function alertaErroCustom(){
     customAlert.innerHTML = `Ops, preencha adequadamente o campo`
+    inputCustom.value = "";
 }
 
 
 function verificaNAN(valor){
     if (/^[0-9%]+$/.test(valor)) {
         inputCustom.parentElement.dataset.porcentagem = valor;
-
+        customAlert.innerHTML= ""
         var billEntrada = billEntry.replace(',','.');
         var  tip = (billEntrada*valor)/100;
         var tipPerson = (tip/peopleEntry);
@@ -164,6 +165,7 @@ function verificaNAN(valor){
 
         tipAmountOutput.innerHTML = `$ ${tipPerson.toFixed(2)}`;
         totalOutput.innerHTML =  `$ ${totalPorPessoa.toFixed(2)}`;
+       
       } else {
         alertaErroCustom();
         saidaErro();
