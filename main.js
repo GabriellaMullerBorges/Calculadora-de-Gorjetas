@@ -2,9 +2,11 @@
 
 const billInput = document.querySelector('#input-bill');
 const peopleInput = document.querySelector('#input-people');
+const billAlert = document.getElementById('alerta-conta');
+const peopleAlert =  document.getElementById('alerta-pessoas')
 const tipAmountOutput = document.getElementById('saida-tip-amount');
 const totalOutput = document.getElementById('saida-total');
-
+const customAlert = document.getElementById('alerta-custom')
 
 
 // INPUT DO VALOR DA CONTA E Nº PESSOAS //
@@ -20,20 +22,61 @@ peopleInput.addEventListener('input',function(event){
     peopleEntry = event.target.value;
 });
 
-  
+//FUNÇÃO EM CASO DE ERRO
+
+function saidaErro(){
+    tipAmountOutput.innerHTML = `Erro`;
+    totalOutput.innerHTML =  `Erro`;
+}
+
+// FUNÇÃO QUE VERIFICA AS ENTRADAS SEPARADAMENTE
+
+function verificaEntradaBill(){
+    if (billEntry == "" || billEntry == "0" || /[^0-9.,]/.test(billEntry) || !/^\d+([.,]\d{1,2})?$/.test(billEntry)){
+        return true
+    } 
+};
+
+function verificaEntradaPeople(){
+    if(peopleEntry === "" || peopleEntry === "0" || /\D/.test(peopleEntry)){
+        return true
+    } 
+}
+
+// FUNÇÃO QUE VERIFICA AS ENTRADAS CONJUNTAMENTE EM DIFERENTES CENÁRIOS
+
+function  verificaEntradas(){
+    if (verificaEntradaBill() && verificaEntradaPeople()) {
+        return "ambos verdadeiros"
+    }else if (verificaEntradaBill() && !verificaEntradaPeople()){
+       return "bill verdadeiro"       
+    }else if (!verificaEntradaBill() && verificaEntradaPeople()){
+        return "people verdadeiro"    
+    }else{
+        return false
+    }
+}
+
+function verificaCasos(){
+    if(verificaEntradas()=="ambos verdadeiros"){
+        billAlert.innerHTML = `Ops, preencha adequadamente o campo`;
+        peopleAlert.innerHTML = `Ops, preencha adequadamente o campo`;
+        saidaErro()
+    }else if(verificaEntradas()=="bill verdadeiro"){
+        billAlert.innerHTML = `Ops, preencha adequadamente o campo`
+        saidaErro()
+    }else{
+        peopleAlert.innerHTML = `Ops, preencha adequadamente o campo`;
+        saidaErro()
+    }   
+};
 // FUNÇÃO QUE CALCULA A GORJETA//
 
 var porcentagemSelecionada;
 var valorNumericoSelecionado;
 
 function calculaGorjeta(gorjeta){
-     if (billEntry == "" || peopleEntry === "" || billEntry == "0" || peopleEntry === "0") { 
-                alert('Ops, algum campo não foi preenchido devidamente')  
-           } else if(/[^0-9.,]/.test(billEntry) || /\D/.test(peopleEntry)){ 
-            alert('Ops, preencha adequadamente os campos com números')  
-           }else if(!/^\d+([.,]\d{1,2})?$/.test(billEntry)){
-            alert('Ops, preencha apenas até duas casas após a vírgula')  
-           }else if(billEntry.includes(",")){
+     if(billEntry.includes(",")){
 
             var billEntrada = billEntry.replace(',','.')
 
@@ -50,7 +93,8 @@ function calculaGorjeta(gorjeta){
 
              tipAmountOutput.innerHTML = `$ ${tipPerson.toFixed(2)}`;
              totalOutput.innerHTML =  `$ ${totalPorPessoa.toFixed(2)}`;
-           }else {  
+       
+    }else {  
              porcentagemSelecionada = gorjeta.dataset.porcentagem;
              valorNumericoSelecionado = parseFloat(porcentagemSelecionada.replace('%', ''));
 
@@ -64,22 +108,46 @@ function calculaGorjeta(gorjeta){
              var totalPorPessoa = (billValue+tip)/peopleValue;
 
              tipAmountOutput.innerHTML = `$ ${tipPerson.toFixed(2)}`;
-             totalOutput.innerHTML =  `$ ${totalPorPessoa.toFixed(2)}`;
-}
-}
+             totalOutput.innerHTML =  `$ ${totalPorPessoa.toFixed(2)}`;   
+            } 
+    };
 
+
+function saidaGorjeta(gorjeta){
+    if (!verificaEntradas()) { 
+        calculaGorjeta(gorjeta)
+    }else {
+        verificaCasos()
+    }
+    }
+ 
+//APLICAÇÃO NOS BOTÕES
 const botoes = document.querySelectorAll('.botao-tip:not([class*=" "])');
 
     botoes.forEach(botao => {
         
-        botao.addEventListener('mouseup', function() {
-            calculaGorjeta(botao);
+        botao.addEventListener('mouseup', function(event) {
+            event.preventDefault();
+            saidaGorjeta(botao);
            }   
      )});
     
-    //BOTAO CUSTOM//
+//BOTAO CUSTOM//
 
 const inputCustom = document.querySelector('.input-custom');
+
+function saidaCustom(valor){
+    if (!verificaEntradas()) { 
+        verificaNAN(valor)
+    }else {
+        verificaCasos()
+    }
+    }
+
+function alertaErroCustom(){
+    customAlert.innerHTML = `Ops, preencha adequadamente o campo`
+}
+
 
 function verificaNAN(valor){
     if (/^[0-9%]+$/.test(valor)) {
@@ -97,7 +165,8 @@ function verificaNAN(valor){
         tipAmountOutput.innerHTML = `$ ${tipPerson.toFixed(2)}`;
         totalOutput.innerHTML =  `$ ${totalPorPessoa.toFixed(2)}`;
       } else {
-        alert("Ops!");
+        alertaErroCustom();
+        saidaErro();
       }
 }
 
@@ -105,9 +174,9 @@ inputCustom.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
 
     const userInput = inputCustom.value;
-    const valorNumerico = parseFloat(userInput.replace('%', '')/*.replace(/,/g, '.')*/); 
-    
-    verificaNAN(valorNumerico)     
+    const valorNumerico = parseFloat(userInput.replace('%', '')); 
+    event.preventDefault();
+    saidaCustom(valorNumerico);  
     }
  }
 ) 
@@ -122,6 +191,11 @@ inputCustom.addEventListener('keydown', function(event) {
          inputCustom.value = "";
          inputCustom.parentElement.dataset.porcentagem = "";
          inputCustom.placeholder = "Custom";
+         billAlert.innerHTML = "";
+         peopleAlert.innerHTML = "";
+         customAlert.innerHTML= ""
+         billEntry = ""
+         peopleEntry = ""
     }
 
     document.getElementById("reset").addEventListener("click", resetPlaceholders);

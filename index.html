@@ -30,7 +30,12 @@
     <div class="baseCalculadora container">
       <div class="ladoInputs">
         <div class="ladoInputsConteudo">
-          <p class="info">Bill</p>
+          <div class="conta">
+            <div class="conta-informacao-alerta">
+            <p class="info" id="info-conta">Conta</p>
+            <p class="alerta" id="alerta-conta"> </p>
+            </div>
+          </div>
           <div class="input-container">  
             <div class="placeholder-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="11" height="17" viewBox="0 0 11 17">
@@ -39,7 +44,12 @@
             </div>
             <input class="inputs" type="text" id="input-bill" placeholder="0,00">   
           </div>
-          <p class="info" id="select-tip">Select Tip %</p>
+          <div class="gorjeta">
+            <div class="gorjeta-informacao-alerta">
+              <p class="info" id="select-tip">Selecione a Gorjeta %</p>
+              <p class="alerta" id="alerta-custom"> </p>
+            </div>
+          </div>
           <div class="container div-botoes">
             <div class="caixa-botoes">
               <button class="botao-tip" data-porcentagem="5%">5%</button>
@@ -52,7 +62,12 @@
               </div>
             </div>
           </div>
-          <p class="info">Number of People</p>
+          <div class="people">
+            <div class="people-informacao-alerta">
+            <p class="info" id="info-pessoas">Nº de Pessoas</p>
+            <p class="alerta" id="alerta-pessoas"> </p>
+            </div>
+          </div>
           <div class="input-container">   
             <div class="placeholder-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="13" height="16">
@@ -67,8 +82,8 @@
         <div class="ladoResultadoConteudo container">
           <div class="quantidadeGorjeta">
             <div class="etiqueta">
-              <p class="etiqueta-oque"> Tip Amount</p>
-              <p class="etiqueta-pessoa">/ person</p>
+              <p class="etiqueta-oque"> Gorjeta</p>
+              <p class="etiqueta-pessoa">/ pessoa</p>
             </div>
             <div class="saida">
               <output class="outputs" id="saida-tip-amount" value="$ 0,00">$ 0,00</output>
@@ -77,7 +92,7 @@
           <div class="quantidadePessoa">
             <div class="etiqueta">
               <p class="etiqueta-oque"> Total</p>
-              <p class="etiqueta-pessoa">/ person</p>
+              <p class="etiqueta-pessoa">/ pessoa</p>
             </div>
             <div class="saida">
               <output class="outputs" id="saida-total" value="$ 0,00">$ 0,00</output>

@@ -41,13 +41,48 @@
         margin-top: 5px;
     }
     
-    .info{
-        margin: 5px;
+    .conta .people .gorjeta{
+       display: flex;
+      }
+
+    .gorjeta{
+      display: flex;
+      flex-direction: row;
+      width:100%;
+
+      }
+
+    .conta-informacao-alerta, .people-informacao-alerta{
+        display: flex;
+        margin-right: 0;
+        padding:0;
+        justify-content: space-between;
+        align-content: center;
     }
 
-    #select-tip{
-        margin-top: 1rem;
+    .gorjeta-informacao-alerta{
+      display: flex;
+      justify-content: space-between;
+      width:100%;
     }
+
+    .info{
+        width:100%;
+        align-items: start;
+      }
+
+      #info-conta, #info-pessoas, #select-tip{
+        width:fit-content;
+      }
+
+      #alerta-custom{
+        height: fit-content;
+      }
+    
+      .alerta{
+        width:fit-content;
+      }
+
     .div-botoes{
         display: flex;
         align-items: start;
