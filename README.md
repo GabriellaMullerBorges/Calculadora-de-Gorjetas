@@ -42,8 +42,8 @@ Como melhoria futura, pretendo realizar as seguintes alterações:
 ## 🧩 Como Contribuir
 Para contribuir com este projeto, siga as etapas abaixo:
 
-* Clone o repositório: git clone https://github.com/your-username/dictionary-web-app.git
-* Abra o projeto conforme as instruções da seção anterior.
+* Clone o repositório com fork em seu github;
+* Abra o projeto com Git Bash e siga as instruções da seção anterior.
 * Faça as alterações e melhorias necessárias.
 * Confira suas alterações utilizando a extensão "Live Server" no arquivo index.html ou dê dois cliques nesse arquivo em sua origem;
 * Posteriormente, crie um pull request, descrevendo as alterações que você fez e por que elas devem ser mescladas.
